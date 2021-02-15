@@ -5,50 +5,7 @@
         "vulnerabilityAssessments_Default_storageContainerPath": {
             "type": "SecureString"
         },
-        "servers_sqlwebseries_name": {
-            "defaultValue": "sqlwebseries",
-            "type": "String"
-        },
-        "vaults_kv_web_series_name": {
-            "defaultValue": "kv-web-series",
-            "type": "String"
-        },
-        "virtualMachines_onpremise_vm_name": {
-            "defaultValue": "onpremise-vm",
-            "type": "String"
-        },
-        "vaults_kv_web_series56756756756_name": {
-            "defaultValue": "kv-web-series56756756756",
-            "type": "String"
-        },
-        "networkInterfaces_onpremise_vm647_name": {
-            "defaultValue": "onpremise-vm647",
-            "type": "String"
-        },
-        "publicIPAddresses_onpremise_vm_ip_name": {
-            "defaultValue": "onpremise-vm-ip",
-            "type": "String"
-        },
-        "storageAccounts_storewebinarseries_name": {
-            "defaultValue": "storewebinarseries",
-            "type": "String"
-        },
-        "storageAccounts_storewebinarseries97_name": {
-            "defaultValue": "storewebinarseries97",
-            "type": "String"
-        },
-        "networkSecurityGroups_onpremise_vm_nsg_name": {
-            "defaultValue": "onpremise-vm-nsg",
-            "type": "String"
-        },
-        "virtualNetworks_rg_webinar_series_vnet_name": {
-            "defaultValue": "rg-webinar-series-vnet",
-            "type": "String"
-        },
-        "privateEndpoints_adf_webinar_privatendpoint_name": {
-            "defaultValue": "adf-webinar-privatendpoint",
-            "type": "String"
-        },
+        
         "privateDnsZones_privatelink_datafactory_azure_net_name": {
             "defaultValue": "privatelink.datafactory.azure.net",
             "type": "String"
