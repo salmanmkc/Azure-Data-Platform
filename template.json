@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccounts_storewebinarseriestut_name": {
-            "defaultValue": "storewebinarseriestut",
+            "defaultValue": "",
             "type": "String"
         },
         "virtualNetworks_rg_webinar_series_vnet_name": {
