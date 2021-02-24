@@ -25,6 +25,10 @@
         "networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name": {
             "defaultValue": "adf-webinar-vm-tutorial-nsg",
             "type": "String"
+        },
+        "admin_vm_name": {
+            "defaultValue": "",
+            "type": "String"
         }
     },
     "variables": {},
@@ -175,7 +179,7 @@
                 },
                 "osProfile": {
                     "computerName": "adf-webinar-vm-",
-                    "adminUsername": "sal",
+                    "adminUsername": "[parameters('admin_vm_name')]",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
