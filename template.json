@@ -29,6 +29,10 @@
         "admin_vm_name": {
             "defaultValue": "",
             "type": "String"
+        },
+        "admin_vm_password": {
+            "defaultValue": "",
+            "type": "String"
         }
     },
     "variables": {},
