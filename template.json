@@ -171,7 +171,6 @@
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "StandardSSD_LRS",
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_adf_webinar_vm_tutorial_name'), '_OsDisk_1_d84f65722efa4231962e67414a969e79'))]"
                         },
                         "diskSizeGB": 127
                     },
