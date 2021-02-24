@@ -170,7 +170,7 @@
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
-                            "storageAccountType": "StandardSSD_LRS",
+                            "storageAccountType": "StandardSSD_LRS"
                         },
                         "diskSizeGB": 127
                     },
