@@ -183,6 +183,7 @@
                 "osProfile": {
                     "computerName": "adf-webinar-vm-",
                     "adminUsername": "[parameters('admin_vm_name')]",
+                    "adminPassword": "[parameters('admin_vm_password')]",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
