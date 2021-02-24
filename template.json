@@ -197,7 +197,7 @@
                 },
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
-                        "enabled": true
+                        "enabled": false
                     }
                 },
                 "licenseType": "Windows_Client"
