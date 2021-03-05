@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccounts_storewebinarseriestut_name": {
-            "defaultValue": "",
+        "storageAccounts_tutorialname_name": {
+            "defaultValue": "tutorialname",
             "type": "String"
         },
         "virtualNetworks_rg_webinar_series_vnet_name": {
@@ -112,10 +112,10 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2020-08-01-preview",
-            "name": "[parameters('storageAccounts_storewebinarseriestut_name')]",
+            "name": "[parameters('storageAccounts_tutorialname_name')]",
             "location": "uksouth",
             "sku": {
-                "name": "Standard_GRS",
+                "name": "Standard_LRS",
                 "tier": "Standard"
             },
             "kind": "StorageV2",
@@ -175,7 +175,7 @@
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "StandardSSD_LRS"
-                        },
+						},
                         "diskSizeGB": 127
                     },
                     "dataDisks": []
@@ -184,13 +184,13 @@
                     "computerName": "adf-webinar-vm-",
                     "adminUsername": "[parameters('admin_vm_name')]",
                     "adminPassword": "[parameters('admin_vm_password')]",
+                    "adminUsername": "sal",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
                     },
                     "secrets": [],
-                    "allowExtensionOperations": true
-                },
+                    "allowExtensionOperations": true                },
                 "networkProfile": {
                     "networkInterfaces": [
                         {
@@ -245,12 +245,12 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storewebinarseriestut_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storewebinarseriestut_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
             ],
             "sku": {
-                "name": "Standard_GRS",
+                "name": "Standard_LRS",
                 "tier": "Standard"
             },
             "properties": {
@@ -263,35 +263,11 @@
             }
         },
         {
-            "type": "Microsoft.Storage/storageAccounts/fileServices",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storewebinarseriestut_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storewebinarseriestut_name'))]"
-            ],
-            "sku": {
-                "name": "Standard_GRS",
-                "tier": "Standard"
-            },
-            "properties": {
-                "protocolSettings": {
-                    "smb": {}
-                },
-                "cors": {
-                    "corsRules": []
-                },
-                "shareDeleteRetentionPolicy": {
-                    "enabled": true,
-                    "days": 7
-                }
-            }
-        },
-        {
             "type": "Microsoft.Storage/storageAccounts/queueServices",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storewebinarseriestut_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storewebinarseriestut_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
             ],
             "properties": {
                 "cors": {
@@ -302,9 +278,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/tableServices",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storewebinarseriestut_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storewebinarseriestut_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
             ],
             "properties": {
                 "cors": {
