@@ -32,7 +32,7 @@
         },
         "admin_vm_password": {
             "defaultValue": "",
-            "type": "String"
+            "type": "SecureString"
         }
     },
     "variables": {},
