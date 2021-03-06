@@ -37,3 +37,9 @@ If you navigate to your newly created resource group or if you click *Go To Depl
 
 ![Private Endpoint Set Up for Azure Data Factory](https://user-images.githubusercontent.com/32169182/110213255-245a6f00-7e97-11eb-8e95-336beeaecc95.png)
 
+- Select Private endpoint connections at the top
+- Add a Private Endpoint by clicking *+Private Endpoint*
+
+![image](https://user-images.githubusercontent.com/32169182/110213333-7c917100-7e97-11eb-9933-1954045994c4.png)
+
+
