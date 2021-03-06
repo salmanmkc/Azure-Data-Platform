@@ -26,7 +26,8 @@ This should take approximately 5 minutes, however that's solely due to there bei
 If you navigate to your newly created resource group or if you click *Go To Deployment* you should have all of these resources (the names may differ based on your input parameters unpon deploying the template:
 
 
-*todo: update this screenshot with the fixed ARM template*
-![All the resources deployed](https://user-images.githubusercontent.com/32169182/110212163-f7f02400-7e91-11eb-8f76-30448df0a8a7.png)
+
+![All the resources deployed](https://user-images.githubusercontent.com/32169182/110212984-f163ab80-7e95-11eb-89c1-0c1f12b2bbca.png)
+
 
 ## Step 2: Configure the Azure Data Factory to use a Private Endpoint
