@@ -1,340 +1,340 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccounts_tutorialname_name": {
-            "defaultValue": "",
-            "type": "String"
-        },
-        "virtualNetworks_rg_webinar_series_vnet_name": {
-            "defaultValue": "rg-webinar-series-vnet",
-            "type": "String"
-        },
-        "virtualMachines_adf_webinar_vm_tutorial_name": {
-            "defaultValue": "adf-webinar-vm-tutorial",
-            "type": "String"
-        },
-        "networkInterfaces_adf_webinar_vm_tutor418_name": {
-            "defaultValue": "adf-webinar-vm-tutor418",
-            "type": "String"
-        },
-        "publicIPAddresses_adf_webinar_vm_tutorial_ip_name": {
-            "defaultValue": "adf-webinar-vm-tutorial-ip",
-            "type": "String"
-        },
-        "networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name": {
-            "defaultValue": "adf-webinar-vm-tutorial-nsg",
-            "type": "String"
-        },
-        "admin_vm_name": {
-            "defaultValue": "",
-            "type": "String"
-        },
-        "admin_vm_password": {
-            "defaultValue": "",
-            "type": "SecureString"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccounts_tutorialname_name": {
+      "defaultValue": "",
+      "type": "String"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2020-05-01",
-            "name": "[parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name')]",
-            "location": "uksouth",
+    "virtualNetworks_rg_webinar_series_vnet_name": {
+      "defaultValue": "rg-webinar-series-vnet",
+      "type": "String"
+    },
+    "virtualMachines_adf_webinar_vm_tutorial_name": {
+      "defaultValue": "adf-webinar-vm-tutorial",
+      "type": "String"
+    },
+    "networkInterfaces_adf_webinar_vm_tutor418_name": {
+      "defaultValue": "adf-webinar-vm-tutor418",
+      "type": "String"
+    },
+    "publicIPAddresses_adf_webinar_vm_tutorial_ip_name": {
+      "defaultValue": "adf-webinar-vm-tutorial-ip",
+      "type": "String"
+    },
+    "networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name": {
+      "defaultValue": "adf-webinar-vm-tutorial-nsg",
+      "type": "String"
+    },
+    "admin_vm_name": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "admin_vm_password": {
+      "defaultValue": "",
+      "type": "SecureString"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2020-05-01",
+      "name": "[parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name')]",
+      "location": "uksouth",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "RDP",
             "properties": {
-                "securityRules": [
-                    {
-                        "name": "RDP",
-                        "properties": {
-                            "protocol": "TCP",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "3389",
-                            "sourceAddressPrefix": "*",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 300,
-                            "direction": "Inbound",
-                            "sourcePortRanges": [],
-                            "destinationPortRanges": [],
-                            "sourceAddressPrefixes": [],
-                            "destinationAddressPrefixes": []
-                        }
-                    }
-                ]
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 300,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
             }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2020-05-01",
+      "name": "[parameters('publicIPAddresses_adf_webinar_vm_tutorial_ip_name')]",
+      "location": "uksouth",
+      "sku": {
+        "name": "Standard"
+      },
+      "zones": [
+        "1"
+      ],
+      "properties": {
+        "ipAddress": "51.143.217.65",
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "idleTimeoutInMinutes": 4,
+        "ipTags": []
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-05-01",
+      "name": "[parameters('virtualNetworks_rg_webinar_series_vnet_name')]",
+      "location": "uksouth",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/24"
+          ]
         },
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2020-05-01",
-            "name": "[parameters('publicIPAddresses_adf_webinar_vm_tutorial_ip_name')]",
-            "location": "uksouth",
-            "sku": {
-                "name": "Standard"
+        "subnets": [
+          {
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.1.0.0/24",
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Enabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+          }
+        ],
+        "virtualNetworkPeerings": [],
+        "enableDdosProtection": false
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2020-08-01-preview",
+      "name": "[parameters('storageAccounts_tutorialname_name')]",
+      "location": "uksouth",
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "minimumTlsVersion": "TLS1_2",
+        "allowBlobPublicAccess": true,
+        "isHnsEnabled": true,
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [],
+          "ipRules": [],
+          "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": true,
+        "encryption": {
+          "services": {
+            "file": {
+              "keyType": "Account",
+              "enabled": true
             },
-            "zones": [
-                "1"
-            ],
-            "properties": {
-                "ipAddress": "51.143.217.65",
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Static",
-                "idleTimeoutInMinutes": 4,
-                "ipTags": []
+            "blob": {
+              "keyType": "Account",
+              "enabled": true
             }
+          },
+          "keySource": "Microsoft.Storage"
         },
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2020-05-01",
-            "name": "[parameters('virtualNetworks_rg_webinar_series_vnet_name')]",
-            "location": "uksouth",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "10.1.0.0/24"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "default",
-                        "properties": {
-                            "addressPrefix": "10.1.0.0/24",
-                            "delegations": [],
-                            "privateEndpointNetworkPolicies": "Enabled",
-                            "privateLinkServiceNetworkPolicies": "Enabled"
-                        }
-                    }
-                ],
-                "virtualNetworkPeerings": [],
-                "enableDdosProtection": false
-            }
+        "accessTier": "Hot"
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2019-07-01",
+      "name": "[parameters('virtualMachines_adf_webinar_vm_tutorial_name')]",
+      "location": "uksouth",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_adf_webinar_vm_tutor418_name'))]"
+      ],
+      "zones": [
+        "1"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_D2_v2"
         },
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[parameters('storageAccounts_tutorialname_name')]",
-            "location": "uksouth",
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsDesktop",
+            "offer": "Windows-10",
+            "sku": "20h1-pro",
+            "version": "latest"
+          },
+          "osDisk": {
+            "osType": "Windows",
+            "name": "[concat(parameters('virtualMachines_adf_webinar_vm_tutorial_name'), '_OsDisk_1_d84f65722efa4231962e67414a969e79')]",
+            "createOption": "FromImage",
+            "caching": "ReadWrite",
+            "managedDisk": {
+              "storageAccountType": "StandardSSD_LRS"
             },
-            "kind": "StorageV2",
-            "properties": {
-                "minimumTlsVersion": "TLS1_2",
-                "allowBlobPublicAccess": true,
-                "isHnsEnabled": true,
-                "networkAcls": {
-                    "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": true,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "keyType": "Account",
-                            "enabled": true
-                        },
-                        "blob": {
-                            "keyType": "Account",
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "accessTier": "Hot"
-            }
+            "diskSizeGB": 127
+          },
+          "dataDisks": []
         },
-        {
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2019-07-01",
-            "name": "[parameters('virtualMachines_adf_webinar_vm_tutorial_name')]",
-            "location": "uksouth",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_adf_webinar_vm_tutor418_name'))]"
-            ],
-            "zones": [
-                "1"
-            ],
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "Standard_D2_v2"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "MicrosoftWindowsDesktop",
-                        "offer": "Windows-10",
-                        "sku": "20h1-pro",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "osType": "Windows",
-                        "name": "[concat(parameters('virtualMachines_adf_webinar_vm_tutorial_name'), '_OsDisk_1_d84f65722efa4231962e67414a969e79')]",
-                        "createOption": "FromImage",
-                        "caching": "ReadWrite",
-                        "managedDisk": {
-                            "storageAccountType": "StandardSSD_LRS"
-						},
-                        "diskSizeGB": 127
-                    },
-                    "dataDisks": []
-                },
-                "osProfile": {
-                    "computerName": "adf-webinar-vm-",
-                    "adminUsername": "[parameters('admin_vm_name')]",
-                    "adminPassword": "[parameters('admin_vm_password')]",
-                    "adminUsername": "sal",
-                    "windowsConfiguration": {
-                        "provisionVMAgent": true,
-                        "enableAutomaticUpdates": true
-                    },
-                    "secrets": [],
-                    "allowExtensionOperations": true                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_adf_webinar_vm_tutor418_name'))]"
-                        }
-                    ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": false
-                    }
-                },
-                "licenseType": "Windows_Client"
-            }
+        "osProfile": {
+          "computerName": "adf-webinar-vm-",
+          "adminUsername": "sal",
+          "adminPassword": "[parameters('admin_vm_password')]",
+          "windowsConfiguration": {
+            "provisionVMAgent": true,
+            "enableAutomaticUpdates": true
+          },
+          "secrets": [],
+          "allowExtensionOperations": true
         },
-        {
-            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "apiVersion": "2020-05-01",
-            "name": "[concat(parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'), '/RDP')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'))]"
-            ],
-            "properties": {
-                "protocol": "TCP",
-                "sourcePortRange": "*",
-                "destinationPortRange": "3389",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 300,
-                "direction": "Inbound",
-                "sourcePortRanges": [],
-                "destinationPortRanges": [],
-                "sourceAddressPrefixes": [],
-                "destinationAddressPrefixes": []
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_adf_webinar_vm_tutor418_name'))]"
             }
+          ]
         },
-        {
-            "type": "Microsoft.Network/virtualNetworks/subnets",
-            "apiVersion": "2020-05-01",
-            "name": "[concat(parameters('virtualNetworks_rg_webinar_series_vnet_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_rg_webinar_series_vnet_name'))]"
-            ],
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": false
+          }
+        },
+        "licenseType": "Windows_Client"
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'), '/RDP')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'))]"
+      ],
+      "properties": {
+        "protocol": "TCP",
+        "sourcePortRange": "*",
+        "destinationPortRange": "3389",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 300,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [],
+        "sourceAddressPrefixes": [],
+        "destinationAddressPrefixes": []
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('virtualNetworks_rg_webinar_series_vnet_name'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_rg_webinar_series_vnet_name'))]"
+      ],
+      "properties": {
+        "addressPrefix": "10.1.0.0/24",
+        "delegations": [],
+        "privateEndpointNetworkPolicies": "Enabled",
+        "privateLinkServiceNetworkPolicies": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices",
+      "apiVersion": "2020-08-01-preview",
+      "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
+      ],
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "properties": {
+        "cors": {
+          "corsRules": []
+        },
+        "deleteRetentionPolicy": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/queueServices",
+      "apiVersion": "2020-08-01-preview",
+      "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
+      ],
+      "properties": {
+        "cors": {
+          "corsRules": []
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/tableServices",
+      "apiVersion": "2020-08-01-preview",
+      "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
+      ],
+      "properties": {
+        "cors": {
+          "corsRules": []
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2020-05-01",
+      "name": "[parameters('networkInterfaces_adf_webinar_vm_tutor418_name')]",
+      "location": "uksouth",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_adf_webinar_vm_tutorial_ip_name'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_rg_webinar_series_vnet_name'), 'default')]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
             "properties": {
-                "addressPrefix": "10.1.0.0/24",
-                "delegations": [],
-                "privateEndpointNetworkPolicies": "Enabled",
-                "privateLinkServiceNetworkPolicies": "Enabled"
+              "privateIPAddress": "10.1.0.4",
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_adf_webinar_vm_tutorial_ip_name'))]"
+              },
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_rg_webinar_series_vnet_name'), 'default')]"
+              },
+              "primary": true,
+              "privateIPAddressVersion": "IPv4"
             }
+          }
+        ],
+        "dnsSettings": {
+          "dnsServers": []
         },
-        {
-            "type": "Microsoft.Storage/storageAccounts/blobServices",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
-            ],
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                },
-                "deleteRetentionPolicy": {
-                    "enabled": false
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/queueServices",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/tableServices",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_tutorialname_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_tutorialname_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2020-05-01",
-            "name": "[parameters('networkInterfaces_adf_webinar_vm_tutor418_name')]",
-            "location": "uksouth",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_adf_webinar_vm_tutorial_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_rg_webinar_series_vnet_name'), 'default')]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'))]"
-            ],
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "properties": {
-                            "privateIPAddress": "10.1.0.4",
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_adf_webinar_vm_tutorial_ip_name'))]"
-                            },
-                            "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_rg_webinar_series_vnet_name'), 'default')]"
-                            },
-                            "primary": true,
-                            "privateIPAddressVersion": "IPv4"
-                        }
-                    }
-                ],
-                "dnsSettings": {
-                    "dnsServers": []
-                },
-                "enableAcceleratedNetworking": false,
-                "enableIPForwarding": false,
-                "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'))]"
-                }
-            }
-        },
-	    {
-		"type": "Microsoft.DataFactory/factories",
-		"apiVersion": "2018-06-01",
-		"name": "[parameters('dataFactoryName')]",
-		"location": "[parameters('location')]",
-		"properties": {},
-		"identity": {
-			"type": "SystemAssigned"
-      	}
-		}
-    ]
+        "enableAcceleratedNetworking": false,
+        "enableIPForwarding": false,
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'))]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.DataFactory/factories",
+      "apiVersion": "2018-06-01",
+      "name": "[parameters('dataFactoryName')]",
+      "location": "[parameters('location')]",
+      "properties": {},
+      "identity": {
+        "type": "SystemAssigned"
+      }
+    }
+  ]
 }
