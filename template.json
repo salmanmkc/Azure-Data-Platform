@@ -325,6 +325,16 @@
                     "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_adf_webinar_vm_tutorial_nsg_name'))]"
                 }
             }
-        }
+        },
+	    {
+		"type": "Microsoft.DataFactory/factories",
+		"apiVersion": "2018-06-01",
+		"name": "[parameters('dataFactoryName')]",
+		"location": "[parameters('location')]",
+		"properties": {},
+		"identity": {
+			"type": "SystemAssigned"
+      	}
+		}
     ]
 }
