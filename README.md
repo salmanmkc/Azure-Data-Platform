@@ -1,4 +1,5 @@
 # Azure Data Factory Project
+This project is here to... {to do}
 
 ## Pre-requisites:
 - An Azure Subscription with Contributor Access
