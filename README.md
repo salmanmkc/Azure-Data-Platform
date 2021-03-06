@@ -4,7 +4,9 @@ This project is here to... {to do}
 ## Pre-requisites:
 - An Azure Subscription with Contributor Access
 
-## Click Deploy To Azure below to get started
+# How to set up the project
+
+## Step 1: Click Deploy To Azure below to get started
 
 [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsalmanmkc%2Ftemplatedeployment%2Fmain%2Ftemplate.json)
 
