@@ -26,6 +26,10 @@
       "defaultValue": "adf-webinar-vm-tutorial-nsg",
       "type": "String"
     },
+    "dataFactoryName": {
+      "efaultvalue": "adf-webinar-adf",
+      "type": "String"   
+    },
     "admin_vm_name": {
       "defaultValue": "",
       "type": "String"
