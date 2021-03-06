@@ -31,3 +31,9 @@ If you navigate to your newly created resource group or if you click *Go To Depl
 
 
 ## Step 2: Configure the Azure Data Factory to use a Private Endpoint
+- Navigate to your Azure Data Factory that has been created in your resourece group
+- Go to the networking tab on the left
+- Change the Networking Access from Public Endpoint to Private Endpoint
+
+![Private Endpoint Set Up for Azure Data Factory](https://user-images.githubusercontent.com/32169182/110213255-245a6f00-7e97-11eb-8e95-336beeaecc95.png)
+
