@@ -13,6 +13,8 @@ This project is here to... {to do}
 Fill in the corresponding fields:
 ![Deploy a custom ARM Template on Azure](https://user-images.githubusercontent.com/32169182/110212845-42bf6b00-7e95-11eb-9fc3-55247d4302ec.png)
 
+Click deploy and you should have this showing:
+![Deployment is in progress](https://user-images.githubusercontent.com/32169182/110212891-739fa000-7e95-11eb-8039-7f0b0f9c497f.png)
 
 
 This should take approximately 5 minutes, however that's solely due to there being a whole Virtual Machine deployment (IaaS), and you can continue to do the next steps as the Virtual Machine continues to deploy.
