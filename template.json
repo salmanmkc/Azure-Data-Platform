@@ -27,7 +27,7 @@
       "type": "String"
     },
     "dataFactoryName": {
-      "efaultvalue": "adf-webinar-adf",
+      "defaultValue": "adf-webinar-adf",
       "type": "String"   
     },
     "admin_vm_name": {
