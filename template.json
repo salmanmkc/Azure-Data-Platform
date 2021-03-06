@@ -330,7 +330,7 @@
       "type": "Microsoft.DataFactory/factories",
       "apiVersion": "2018-06-01",
       "name": "[parameters('dataFactoryName')]",
-      "location": "[parameters('location')]",
+      "location": "uksouth",
       "properties": {},
       "identity": {
         "type": "SystemAssigned"
