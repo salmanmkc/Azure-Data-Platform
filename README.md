@@ -1,4 +1,4 @@
-# Azure Data Factory Project
+# Azure Data Platform/Analytics Platform
 This project is here to... {to do}
 
 ## Pre-requisites:
