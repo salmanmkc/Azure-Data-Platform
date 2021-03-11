@@ -43,6 +43,10 @@ If you navigate to your newly created resource group or if you click *Go To Depl
 ![image](https://user-images.githubusercontent.com/32169182/110213333-7c917100-7e97-11eb-9933-1954045994c4.png)
 
 Add an endpoint:
+
+Tab 1:
 ![image](https://user-images.githubusercontent.com/32169182/110741470-97177180-822c-11eb-9238-f14e1dd2cd86.png)
 
+Target your own resource in tab 2
+![image](https://user-images.githubusercontent.com/32169182/110741578-d47bff00-822c-11eb-9e98-c71b5d6ce10e.png)
 
