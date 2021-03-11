@@ -2,7 +2,7 @@
 This project is here to... {to do}
 
 ## Pre-requisites:
-- An Azure Subscription with Contributor Access
+- An Azure Resource Gruop with Contributor Access
 
 # How to set up the project
 
