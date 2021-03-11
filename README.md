@@ -50,3 +50,6 @@ Tab 1:
 Target your own resource in tab 2
 ![image](https://user-images.githubusercontent.com/32169182/110741578-d47bff00-822c-11eb-9e98-c71b5d6ce10e.png)
 
+Naviate to your Azure Data Factory and lunch it
+![image](https://user-images.githubusercontent.com/32169182/110761884-241bf400-8248-11eb-97fa-7d50dbc29956.png)
+
