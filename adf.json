@@ -1,0 +1,793 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "metadata": "Data Factory name",
+            "defaultValue": "adf-web-series"
+        }        
+    },
+    "variables": {
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('factoryName'), '/DestinationDataset_6y8')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "parameters": {
+                    "cw_fileName": {
+                        "type": "String"
+                    }
+                },
+                "annotations": [],
+                "type": "DelimitedText",
+                "typeProperties": {
+                    "location": {
+                        "type": "AzureBlobFSLocation",
+                        "fileName": {
+                            "value": "@dataset().cw_fileName",
+                            "type": "Expression"
+                        },
+                        "fileSystem": "1-bronze"
+                    },
+                    "columnDelimiter": ",",
+                    "escapeChar": "\\",
+                    "firstRowAsHeader": true,
+                    "quoteChar": "\""
+                },
+                "schema": []
+            }
+            
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/SourceDataset_6y8')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "linkedServiceName": {
+                    "referenceName": "AzureSynapseWebseries",
+                    "type": "LinkedServiceReference"
+                },
+                "parameters": {
+                    "cw_table": {
+                        "type": "String"
+                    }
+                },
+                "annotations": [],
+                "type": "AzureSqlDWTable",
+                "schema": [],
+                "typeProperties": {
+                    "schema": "dbo",
+                    "table": {
+                        "value": "@dataset().cw_table",
+                        "type": "Expression"
+                    }
+                }
+            }
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/dimProductSubCategory')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "DelimitedText",
+                "typeProperties": {
+                    "location": {
+                        "type": "AzureBlobFSLocation",
+                        "fileName": "dboDimProductSubcategory",
+                        "fileSystem": "1-bronze"
+                    },
+                    "columnDelimiter": ",",
+                    "escapeChar": "\\",
+                    "firstRowAsHeader": true,
+                    "quoteChar": "\""
+                },
+                "schema": [
+                    {
+                        "name": "ProductSubcategoryKey",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ProductSubcategoryAlternateKey",
+                        "type": "String"
+                    },
+                    {
+                        "name": "EnglishProductSubcategoryName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "SpanishProductSubcategoryName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "FrenchProductSubcategoryName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ProductCategoryKey",
+                        "type": "String"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/joinedDataset')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                
+                "annotations": [],
+                "type": "Parquet",
+                "typeProperties": {
+                    "location": {
+                        "type": "AzureBlobFSLocation",
+                        "fileSystem": "2-silver"
+                    },
+                    "compressionCodec": "snappy"
+                },
+                "schema": []
+            }
+            
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/dimProductCategory')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                
+                "annotations": [],
+                "type": "DelimitedText",
+                "typeProperties": {
+                    "location": {
+                        "type": "AzureBlobFSLocation",
+                        "fileName": "dboDimProductCategory",
+                        "fileSystem": "1-bronze"
+                    },
+                    "columnDelimiter": ",",
+                    "escapeChar": "\\",
+                    "firstRowAsHeader": true,
+                    "quoteChar": "\""
+                },
+                "schema": [
+                    {
+                        "name": "ProductCategoryKey",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ProductCategoryAlternateKey",
+                        "type": "String"
+                    },
+                    {
+                        "name": "EnglishProductCategoryName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "SpanishProductCategoryName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "FrenchProductCategoryName",
+                        "type": "String"
+                    }
+                ]
+            }
+           
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/dimProduct')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                
+                "annotations": [],
+                "type": "DelimitedText",
+                "typeProperties": {
+                    "location": {
+                        "type": "AzureBlobFSLocation",
+                        "fileName": "dboDimProduct",
+                        "fileSystem": "1-bronze"
+                    },
+                    "columnDelimiter": ",",
+                    "escapeChar": "\\",
+                    "firstRowAsHeader": true,
+                    "quoteChar": "\""
+                },
+                "schema": [
+                    {
+                        "name": "ProductKey",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ProductAlternateKey",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ProductSubcategoryKey",
+                        "type": "String"
+                    },
+                    {
+                        "name": "WeightUnitMeasureCode",
+                        "type": "String"
+                    },
+                    {
+                        "name": "SizeUnitMeasureCode",
+                        "type": "String"
+                    },
+                    {
+                        "name": "EnglishProductName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "SpanishProductName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "FrenchProductName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "StandardCost",
+                        "type": "String"
+                    },
+                    {
+                        "name": "FinishedGoodsFlag",
+                        "type": "String"
+                    },
+                    {
+                        "name": "Color",
+                        "type": "String"
+                    },
+                    {
+                        "name": "SafetyStockLevel",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ReorderPoint",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ListPrice",
+                        "type": "String"
+                    },
+                    {
+                        "name": "Size",
+                        "type": "String"
+                    },
+                    {
+                        "name": "SizeRange",
+                        "type": "String"
+                    },
+                    {
+                        "name": "Weight",
+                        "type": "String"
+                    },
+                    {
+                        "name": "DaysToManufacture",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ProductLine",
+                        "type": "String"
+                    },
+                    {
+                        "name": "DealerPrice",
+                        "type": "String"
+                    },
+                    {
+                        "name": "Class",
+                        "type": "String"
+                    },
+                    {
+                        "name": "Style",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ModelName",
+                        "type": "String"
+                    },
+                    {
+                        "name": "EnglishDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "FrenchDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ChineseDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ArabicDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "HebrewDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "ThaiDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "GermanDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "JapaneseDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "TurkishDescription",
+                        "type": "String"
+                    },
+                    {
+                        "name": "StartDate",
+                        "type": "String"
+                    },
+                    {
+                        "name": "EndDate",
+                        "type": "String"
+                    },
+                    {
+                        "name": "Status",
+                        "type": "String"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/adf-shir-onpremise')]",
+            "type": "Microsoft.DataFactory/factories/integrationRuntimes",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "type": "SelfHosted",
+                "description": "This is the on-premise SHIR instance to demonstrate the capability of working with external data sources",
+                "typeProperties": {}
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/adf-managed-vnet-ir')]",
+            "type": "Microsoft.DataFactory/factories/integrationRuntimes",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "type": "Managed",
+                "typeProperties": {
+                    "computeProperties": {
+                        "location": "UK South",
+                        "dataFlowProperties": {
+                            "computeType": "General",
+                            "coreCount": 8,
+                            "timeToLive": 10,
+                            "cleanup": true
+                        }
+                    }
+                },
+                "managedVirtualNetwork": {
+                    "type": "ManagedVirtualNetworkReference",
+                    "referenceName": "default"
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/InitialCopySQLtoALDS')]",
+            "type": "Microsoft.DataFactory/factories/pipelines",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "activities": [
+                    {
+                        "name": "ForEach_6y8",
+                        "type": "ForEach",
+                        "dependsOn": [],
+                        "userProperties": [],
+                        "typeProperties": {
+                            "items": {
+                                "value": "@pipeline().parameters.cw_items",
+                                "type": "Expression"
+                            },
+                            "activities": [
+                                {
+                                    "name": "Copy_6y8",
+                                    "type": "Copy",
+                                    "dependsOn": [],
+                                    "policy": {
+                                        "timeout": "7.00:00:00",
+                                        "retry": 0,
+                                        "retryIntervalInSeconds": 30,
+                                        "secureOutput": false,
+                                        "secureInput": false
+                                    },
+                                    "userProperties": [
+                                        {
+                                            "name": "Source",
+                                            "value": "dbo.@{item().source.table}"
+                                        },
+                                        {
+                                            "name": "Destination",
+                                            "value": "1-bronze//@{item().destination.fileName}"
+                                        }
+                                    ],
+                                    "typeProperties": {
+                                        "source": {
+                                            "type": "SqlDWSource",
+                                            "partitionOption": "None"
+                                        },
+                                        "sink": {
+                                            "type": "DelimitedTextSink",
+                                            "storeSettings": {
+                                                "type": "AzureBlobFSWriteSettings"
+                                            },
+                                            "formatSettings": {
+                                                "type": "DelimitedTextWriteSettings",
+                                                "quoteAllText": true,
+                                                "fileExtension": ".txt"
+                                            }
+                                        },
+                                        "enableStaging": false,
+                                        "parallelCopies": 4,
+                                        "validateDataConsistency": false
+                                    },
+                                    "inputs": [
+                                        {
+                                            "referenceName": "SourceDataset_6y8",
+                                            "type": "DatasetReference",
+                                            "parameters": {
+                                                "cw_table": "@item().source.table"
+                                            }
+                                        }
+                                    ],
+                                    "outputs": [
+                                        {
+                                            "referenceName": "DestinationDataset_6y8",
+                                            "type": "DatasetReference",
+                                            "parameters": {
+                                                "cw_fileName": "@item().destination.fileName"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "parameters": {
+                    "cw_items": {
+                        "type": "Array",
+                        "defaultValue": [
+                            {
+                                "source": {
+                                    "table": "DimAccount"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimAccount"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimCurrency"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimCurrency"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimCustomer"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimCustomer"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimDate"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimDate"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimDepartmentGroup"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimDepartmentGroup"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimEmployee"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimEmployee"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimGeography"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimGeography"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimOrganization"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimOrganization"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimProduct"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimProduct"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimProductCategory"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimProductCategory"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimProductSubcategory"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimProductSubcategory"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimPromotion"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimPromotion"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimReseller"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimReseller"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimSalesReason"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimSalesReason"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimSalesTerritory"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimSalesTerritory"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "DimScenario"
+                                },
+                                "destination": {
+                                    "fileName": "dboDimScenario"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "FactCallCenter"
+                                },
+                                "destination": {
+                                    "fileName": "dboFactCallCenter"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "FactCurrencyRate"
+                                },
+                                "destination": {
+                                    "fileName": "dboFactCurrencyRate"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "FactFinance"
+                                },
+                                "destination": {
+                                    "fileName": "dboFactFinance"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "FactInternetSales"
+                                },
+                                "destination": {
+                                    "fileName": "dboFactInternetSales"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "FactInternetSalesReason"
+                                },
+                                "destination": {
+                                    "fileName": "dboFactInternetSalesReason"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "FactResellerSales"
+                                },
+                                "destination": {
+                                    "fileName": "dboFactResellerSales"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "FactSalesQuota"
+                                },
+                                "destination": {
+                                    "fileName": "dboFactSalesQuota"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "FactSurveyResponse"
+                                },
+                                "destination": {
+                                    "fileName": "dboFactSurveyResponse"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "table": "ProspectiveBuyer"
+                                },
+                                "destination": {
+                                    "fileName": "dboProspectiveBuyer"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "annotations": [],
+                "lastPublishTime": "2021-02-02T21:20:53Z"
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/datasets/SourceDataset_6y8')]",
+                "[concat(variables('factoryId'), '/datasets/DestinationDataset_6y8')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/MDF')]",
+            "type": "Microsoft.DataFactory/factories/pipelines",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "activities": [
+                    {
+                        "name": "run pipeline",
+                        "type": "ExecuteDataFlow",
+                        "dependsOn": [],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "dataflow": {
+                                "referenceName": "joinFiles",
+                                "type": "DataFlowReference",
+                                "parameters": {},
+                                "datasetParameters": {
+                                    "product": {},
+                                    "productCategory": {},
+                                    "productSubCategory": {},
+                                    "sink1": {}
+                                }
+                            },
+                            "staging": {},
+                            "integrationRuntime": {
+                                "referenceName": "adf-managed-vnet-ir",
+                                "type": "IntegrationRuntimeReference"
+                            },
+                            "traceLevel": "Fine"
+                        }
+                    }
+                ],
+                "annotations": [],
+                "lastPublishTime": "2021-02-12T12:47:37Z"
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/dataflows/joinFiles')]",
+                "[concat(variables('factoryId'), '/integrationRuntimes/adf-managed-vnet-ir')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/default')]",
+            "type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "preventDataExfiltration": false
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/joinFiles')]",
+            "type": "Microsoft.DataFactory/factories/dataflows",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "type": "MappingDataFlow",
+                "typeProperties": {
+                    "sources": [
+                        {
+                            "dataset": {
+                                "referenceName": "dimProduct",
+                                "type": "DatasetReference"
+                            },
+                            "name": "product"
+                        },
+                        {
+                            "dataset": {
+                                "referenceName": "dimProductCategory",
+                                "type": "DatasetReference"
+                            },
+                            "name": "productCategory"
+                        },
+                        {
+                            "dataset": {
+                                "referenceName": "dimProductSubCategory",
+                                "type": "DatasetReference"
+                            },
+                            "name": "productSubCategory"
+                        }
+                    ],
+                    "sinks": [
+                        {
+                            "dataset": {
+                                "referenceName": "joinedDataset",
+                                "type": "DatasetReference"
+                            },
+                            "name": "sink1"
+                        }
+                    ],
+                    "transformations": [
+                        {
+                            "name": "Join1"
+                        },
+                        {
+                            "name": "Join2"
+                        },
+                        {
+                            "name": "Select1"
+                        }
+                    ],
+                    "script": "source(output(\n\t\tProductKey as string,\n\t\tProductAlternateKey as string,\n\t\tProductSubcategoryKey as string,\n\t\tWeightUnitMeasureCode as string,\n\t\tSizeUnitMeasureCode as string,\n\t\tEnglishProductName as string,\n\t\tSpanishProductName as string,\n\t\tFrenchProductName as string,\n\t\tStandardCost as string,\n\t\tFinishedGoodsFlag as string,\n\t\tColor as string,\n\t\tSafetyStockLevel as string,\n\t\tReorderPoint as string,\n\t\tListPrice as string,\n\t\tSize as string,\n\t\tSizeRange as string,\n\t\tWeight as string,\n\t\tDaysToManufacture as string,\n\t\tProductLine as string,\n\t\tDealerPrice as string,\n\t\tClass as string,\n\t\tStyle as string,\n\t\tModelName as string,\n\t\tEnglishDescription as string,\n\t\tFrenchDescription as string,\n\t\tChineseDescription as string,\n\t\tArabicDescription as string,\n\t\tHebrewDescription as string,\n\t\tThaiDescription as string,\n\t\tGermanDescription as string,\n\t\tJapaneseDescription as string,\n\t\tTurkishDescription as string,\n\t\tStartDate as string,\n\t\tEndDate as string,\n\t\tStatus as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> product\nsource(output(\n\t\tProductCategoryKey as string,\n\t\tProductCategoryAlternateKey as string,\n\t\tEnglishProductCategoryName as string,\n\t\tSpanishProductCategoryName as string,\n\t\tFrenchProductCategoryName as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> productCategory\nsource(output(\n\t\tProductSubcategoryKey as string,\n\t\tProductSubcategoryAlternateKey as string,\n\t\tEnglishProductSubcategoryName as string,\n\t\tSpanishProductSubcategoryName as string,\n\t\tFrenchProductSubcategoryName as string,\n\t\tProductCategoryKey as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> productSubCategory\nproduct, productSubCategory join(product@ProductSubcategoryKey == productSubCategory@ProductSubcategoryKey,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> Join1\nJoin1, productCategory join(productSubCategory@ProductCategoryKey == productCategory@ProductCategoryKey,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> Join2\nJoin2 select(mapColumn(\n\t\tProductKey,\n\t\tProductAlternateKey,\n\t\tProductSubcategoryKey = product@ProductSubcategoryKey,\n\t\tWeightUnitMeasureCode,\n\t\tSizeUnitMeasureCode,\n\t\tEnglishProductName,\n\t\tSpanishProductName,\n\t\tFrenchProductName,\n\t\tStandardCost,\n\t\tFinishedGoodsFlag,\n\t\tColor,\n\t\tSafetyStockLevel,\n\t\tReorderPoint,\n\t\tListPrice,\n\t\tSize,\n\t\tSizeRange,\n\t\tWeight,\n\t\tDaysToManufacture,\n\t\tProductLine,\n\t\tDealerPrice,\n\t\tClass,\n\t\tStyle,\n\t\tModelName,\n\t\tEnglishDescription,\n\t\tFrenchDescription,\n\t\tChineseDescription,\n\t\tArabicDescription,\n\t\tHebrewDescription,\n\t\tThaiDescription,\n\t\tGermanDescription,\n\t\tJapaneseDescription,\n\t\tTurkishDescription,\n\t\tStartDate,\n\t\tEndDate,\n\t\tStatus,\n\t\tProductSubcategoryKey = productSubCategory@ProductSubcategoryKey,\n\t\tEnglishProductSubcategoryName,\n\t\tSpanishProductSubcategoryName,\n\t\tFrenchProductSubcategoryName,\n\t\tProductCategoryKey = productCategory@ProductCategoryKey\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1\nSelect1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'parquet',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/datasets/dimProduct')]",
+                "[concat(variables('factoryId'), '/datasets/dimProductCategory')]",
+                "[concat(variables('factoryId'), '/datasets/dimProductSubCategory')]",
+                "[concat(variables('factoryId'), '/datasets/joinedDataset')]"
+            ]
+        }
+    ]
+}
