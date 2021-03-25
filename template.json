@@ -6,6 +6,10 @@
       "defaultValue": "",
       "type": "String"
     },
+    "vaults_kv_web_series_name": {
+            "defaultValue": "kv-web-series",
+            "type": "String"
+    },
     "virtualNetworks_rg_webinar_series_vnet_name": {
       "defaultValue": "rg-webinar-series-vnet",
       "type": "String"
@@ -28,7 +32,7 @@
     },
     "dataFactoryName": {
       "defaultValue": "adf-webinar-adf",
-      "type": "String"   
+      "type": "String"
     },
     "admin_vm_name": {
       "defaultValue": "",
@@ -41,6 +45,89 @@
   },
   "variables": {},
   "resources": [
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2019-09-01",
+      "name": "[parameters('vaults_kv_web_series_name')]",
+      "location": "uksouth",
+      "properties": {
+        "sku": {
+          "family": "A",
+          "name": "Standard"
+        },
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "accessPolicies": [
+          {
+            "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "objectId": "a0d070d5-97d3-4732-9eba-7d26728f7eb8",
+            "permissions": {
+              "keys": [
+                "Get",
+                "List",
+                "UnwrapKey",
+                "WrapKey"
+              ],
+              "secrets": [
+                "Get",
+                "List"
+              ],
+              "certificates": []
+            }
+          },
+          {
+            "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "objectId": "88b67390-d202-4417-8f2e-d72725841bac",
+            "permissions": {
+              "keys": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+              ],
+              "secrets": [
+                "Get",
+                "List",
+                "Set",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+              ],
+              "certificates": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore",
+                "ManageContacts",
+                "ManageIssuers",
+                "GetIssuers",
+                "ListIssuers",
+                "SetIssuers",
+                "DeleteIssuers"
+              ]
+            }
+          }
+        ],
+        "enabledForDeployment": true,
+        "enabledForDiskEncryption": true,
+        "enabledForTemplateDeployment": true,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": 90,
+        "enableRbacAuthorization": false,
+        "vaultUri": "[concat('https://', parameters('vaults_kv_web_series_name'), '.vault.azure.net/')]",
+        "provisioningState": "Succeeded"
+      }
+    },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2020-05-01",
