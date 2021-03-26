@@ -67,7 +67,8 @@ Then click Azure and continue again
 ![image](https://user-images.githubusercontent.com/32169182/112648937-e6bb8700-8e41-11eb-9901-14cd99603603.png)
 
 1. Give it a good name, in this case I've named it managed-vnet
-2. Enable Virtuanel network configuration
+2. Enable Vritual network configuration
+Then click create
 
 ![image](https://user-images.githubusercontent.com/32169182/112649193-1c607000-8e42-11eb-95ea-50202c2f9daf.png)
 
