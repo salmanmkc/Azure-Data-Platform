@@ -53,6 +53,10 @@ Target your own resource in tab 2
 Naviate to your Azure Data Factory and lunch it
 ![image](https://user-images.githubusercontent.com/32169182/110761884-241bf400-8248-11eb-97fa-7d50dbc29956.png)
 
+
+# Managed VNET
+By creating a managed VNET it allows us to access our PaaS resources on a private endpoint.
+
 1. Click the Manage option on the left menu
 2. Click Integration Runtimes
 3. Click New 
