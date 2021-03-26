@@ -66,3 +66,4 @@ Then click Azure and continue again
 
 ![image](https://user-images.githubusercontent.com/32169182/112648937-e6bb8700-8e41-11eb-9901-14cd99603603.png)
 
+![image](https://user-images.githubusercontent.com/32169182/112649037-fc30b100-8e41-11eb-9382-a083d12d8329.png)
