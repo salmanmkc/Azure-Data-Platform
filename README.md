@@ -58,6 +58,11 @@ Naviate to your Azure Data Factory and lunch it
 3. Click New 
 ![image](https://user-images.githubusercontent.com/32169182/112648343-57ae6f00-8e41-11eb-85d4-18a2d4fffd81.png)
 
-Choose Azure, Self-Hosted
+Choose Azure, Self-Hosted, then continue
 
 ![image](https://user-images.githubusercontent.com/32169182/112648784-c4c20480-8e41-11eb-9b4f-8b16e0f58782.png)
+
+Then click Azure and continue again
+
+![image](https://user-images.githubusercontent.com/32169182/112648937-e6bb8700-8e41-11eb-9901-14cd99603603.png)
+
