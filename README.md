@@ -98,4 +98,9 @@ Go to your storage account and approve the private endpoint
 ![image](https://user-images.githubusercontent.com/32169182/112960855-bd01a900-913c-11eb-839a-b4eb1aa5f727.png)
 
 
+Go back to Linked Services, and click new
+
+![image](https://user-images.githubusercontent.com/32169182/112961071-ee7a7480-913c-11eb-83d1-d379eea1fdad.png)
+
+
 
