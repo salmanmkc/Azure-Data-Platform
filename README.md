@@ -92,3 +92,10 @@ Give it a name, choose your Azure Subscription and your Storage Account that you
 
 ![image](https://user-images.githubusercontent.com/32169182/112960444-541a3100-913c-11eb-86e6-97521d3d632e.png)
 
+
+Go to your storage account and approve the private endpoint
+
+![image](https://user-images.githubusercontent.com/32169182/112960855-bd01a900-913c-11eb-839a-b4eb1aa5f727.png)
+
+
+
