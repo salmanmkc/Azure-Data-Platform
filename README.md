@@ -111,5 +111,5 @@ For *Connect via integration runtime* select from the dropdown your managed vnet
 ![image](https://user-images.githubusercontent.com/32169182/112961505-592bb000-913d-11eb-825d-6be05b84eacb.png)
 
 
-If successful this should show up and yo ur private endpoint should be approved
+If successful this should show up and your private endpoint should be approved
 ![image](https://user-images.githubusercontent.com/32169182/112961652-79f40580-913d-11eb-9409-f9f157f9615c.png)
