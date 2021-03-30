@@ -87,3 +87,8 @@ Choose Azure Data Lake Gen 2 (ADLS2)
 ![image](https://user-images.githubusercontent.com/32169182/112958691-a35f6200-913a-11eb-8e6e-3e3f6efeebe3.png)
 
 
+Give it a name, choose your Azure Subscription and your Storage Account that you made during the initial deployment stage
+
+
+![image](https://user-images.githubusercontent.com/32169182/112960444-541a3100-913c-11eb-86e6-97521d3d632e.png)
+
