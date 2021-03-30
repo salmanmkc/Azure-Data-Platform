@@ -113,3 +113,11 @@ For *Connect via integration runtime* select from the dropdown your managed vnet
 
 If successful this should show up and your private endpoint should be approved
 ![image](https://user-images.githubusercontent.com/32169182/112961652-79f40580-913d-11eb-9409-f9f157f9615c.png)
+
+
+Test the connection
+
+![image](https://user-images.githubusercontent.com/32169182/112961913-ba538380-913d-11eb-93e0-c82429e53dd2.png)
+
+
+Now this approach is by using a key, if you have owner access to your subscription then you will be able to grant access via managed identity by configuring Access Control (IAM) and you can select Managed Identity in the steps above.
