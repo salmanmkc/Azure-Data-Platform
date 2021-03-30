@@ -107,4 +107,5 @@ Choose Azure Data Lake Storage Gen2
 ![image](https://user-images.githubusercontent.com/32169182/112961136-ff2aea80-913c-11eb-8aa7-aa8f278731c0.png)
 
 
-
+For *Connect via integration runtime* select from the dropdown your managed vnet that you just created in the previous step
+![image](https://user-images.githubusercontent.com/32169182/112961505-592bb000-913d-11eb-825d-6be05b84eacb.png)
