@@ -103,4 +103,8 @@ Go back to Linked Services, and click new
 ![image](https://user-images.githubusercontent.com/32169182/112961071-ee7a7480-913c-11eb-83d1-d379eea1fdad.png)
 
 
+Choose Azure Data Lake Storage Gen2
+![image](https://user-images.githubusercontent.com/32169182/112961136-ff2aea80-913c-11eb-8aa7-aa8f278731c0.png)
+
+
 
