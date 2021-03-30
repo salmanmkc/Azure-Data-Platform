@@ -83,4 +83,7 @@ Then click create
 ![image](https://user-images.githubusercontent.com/32169182/112649804-aa3c5b00-8e42-11eb-9e42-93b858179546.png)
 
 
+Choose Azure Data Lake Gen 2 (ADLS2)
+![image](https://user-images.githubusercontent.com/32169182/112958691-a35f6200-913a-11eb-8e6e-3e3f6efeebe3.png)
+
 
