@@ -168,6 +168,11 @@ Search for file and choose File System
 
 ![image](https://user-images.githubusercontent.com/32169182/113284316-5d90ce00-92e1-11eb-9635-26b6eed613fa.png)
 
+Under Connect via integration runtime, choose your self-hosted-vm
+
+![image](https://user-images.githubusercontent.com/32169182/113284429-8618c800-92e1-11eb-980b-1a581990e251.png)
+
+
 
 
 
