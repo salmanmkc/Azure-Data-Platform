@@ -262,3 +262,7 @@ Again choose DelimitedText/CSV
 
 ![image](https://user-images.githubusercontent.com/32169182/113287095-fb39cc80-92e4-11eb-99ca-976e0c40f98e.png)
 
+You can then choose your linked service for your file server
+
+![image](https://user-images.githubusercontent.com/32169182/113287171-199fc800-92e5-11eb-887c-4b66f8c97685.png)
+
