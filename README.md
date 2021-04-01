@@ -174,7 +174,9 @@ Under Connect via integration runtime, choose your self-hosted-vm
 
 ![image](https://user-images.githubusercontent.com/32169182/113284429-8618c800-92e1-11eb-980b-1a581990e251.png)
 
-On your VM, create a new text file and copy the path
+On your VM, create a new folder on one of your drives
+1) Create a new file in that folder
+2) Copy the path of the folder
 
 ![image](https://user-images.githubusercontent.com/32169182/113284679-e14aba80-92e1-11eb-975b-ccbfa8af7234.png)
 
