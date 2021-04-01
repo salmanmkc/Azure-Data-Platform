@@ -208,4 +208,10 @@ This can then be used for secrets instead of inputting your password for the sel
 ![image](https://user-images.githubusercontent.com/32169182/113285620-19063200-92e3-11eb-8e0a-bfd321d31aaf.png)
 
 
+## Creating a Pipeline
+
+1) Click on Pipelines in the side menu on the left
+2) Click the plus button
+3) Choose datasets
+
 
