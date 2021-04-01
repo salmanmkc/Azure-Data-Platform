@@ -158,6 +158,8 @@ Now you can see that the status of the integration run time on my self-hosted VM
 
 ![image](https://user-images.githubusercontent.com/32169182/113283944-d5122d80-92e0-11eb-9393-7cedd929c3cb.png)
 
+You will need to use your VM in few steps, so don't log off yet
+
 
 Add a new linked service again by going to linked services, new
 
@@ -172,7 +174,9 @@ Under Connect via integration runtime, choose your self-hosted-vm
 
 ![image](https://user-images.githubusercontent.com/32169182/113284429-8618c800-92e1-11eb-980b-1a581990e251.png)
 
+On your VM, create a new file and copy the path
 
+![image](https://user-images.githubusercontent.com/32169182/113284550-b496a300-92e1-11eb-8a2e-ce97fa06d671.png)
 
 
 
