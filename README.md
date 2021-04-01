@@ -299,3 +299,7 @@ At the bottom of the page
 
 ![image](https://user-images.githubusercontent.com/32169182/113288066-5cae6b00-92e6-11eb-8521-441b84b1fe9e.png)
 
+Click Debug
+
+![image](https://user-images.githubusercontent.com/32169182/113288128-6fc13b00-92e6-11eb-926a-9edba0624346.png)
+
