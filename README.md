@@ -135,4 +135,8 @@ Choose Azure, Self-Hosted
 ![image](https://user-images.githubusercontent.com/32169182/113283159-cb3bfa80-92df-11eb-8b58-9dd909e897d0.png)
 
 
+Under Network Environment select Self-Hosted and then click continue
+
+![image](https://user-images.githubusercontent.com/32169182/113283205-ddb63400-92df-11eb-802d-3858cec9b9b2.png)
+
 
