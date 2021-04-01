@@ -213,7 +213,7 @@ Go to your storage account and create a new container
 
 
 
-## Creating a Pipeline
+## Creating connections for the pipeline
 
 1) Click on Pipelines in the side menu on the left
 2) Click the plus button
