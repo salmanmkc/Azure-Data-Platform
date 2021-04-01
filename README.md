@@ -250,3 +250,9 @@ For the import schema, click on None
 ![image](https://user-images.githubusercontent.com/32169182/113286729-7f3f8480-92e4-11eb-80c2-0d99f82694ea.png)
 
 
+Next do the same for your file server on the VM
+
+![image](https://user-images.githubusercontent.com/32169182/113286947-c9c10100-92e4-11eb-8b1c-b83d3119019c.png)
+
+
+
