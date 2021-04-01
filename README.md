@@ -190,4 +190,11 @@ Enter your username and password that you set in the initial ARM resource templa
 ![image](https://user-images.githubusercontent.com/32169182/113285086-7057d280-92e2-11eb-8566-095d5fb47121.png)
 
 
+As best practice you can create a linked service to an Azure Key Vault
+1) Linked Services
+2) New
+
+![image](https://user-images.githubusercontent.com/32169182/113285306-b876f500-92e2-11eb-87c8-a17fc40c7038.png)
+
+
 
