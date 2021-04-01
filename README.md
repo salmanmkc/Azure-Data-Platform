@@ -238,9 +238,10 @@ Choose your linked service for your Azure Storage Account
 ![image](https://user-images.githubusercontent.com/32169182/113286553-456e7e00-92e4-11eb-96bd-3dfe1f9b7652.png)
 
 
-Next you can browse to the path of your container that you previously created
-
+Next you can click on the browse button
 ![image](https://user-images.githubusercontent.com/32169182/113286621-5f0fc580-92e4-11eb-8a6e-6cd173792086.png)
+
+Choose your container that you previously created
 
 ![image](https://user-images.githubusercontent.com/32169182/113286657-68992d80-92e4-11eb-97e8-c3a6600af996.png)
 
