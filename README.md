@@ -258,3 +258,7 @@ Search for file and choose File System
 
 ![image](https://user-images.githubusercontent.com/32169182/113287019-e2c9b200-92e4-11eb-90c1-6ce878c27010.png)
 
+Again choose DelimitedText/CSV
+
+![image](https://user-images.githubusercontent.com/32169182/113287095-fb39cc80-92e4-11eb-99ca-976e0c40f98e.png)
+
