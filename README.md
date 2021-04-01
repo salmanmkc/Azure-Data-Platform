@@ -222,3 +222,9 @@ Choose Azure Data Lake Gen 2
 
 ![image](https://user-images.githubusercontent.com/32169182/113286143-b6616600-92e3-11eb-84b0-20f6e94471f3.png)
 
+
+For format choose DelimitedText/CSV
+
+![image](https://user-images.githubusercontent.com/32169182/113286258-db55d900-92e3-11eb-8171-16ecf9e84b4d.png)
+
+
