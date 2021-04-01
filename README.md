@@ -291,3 +291,9 @@ Drag Copy Data onto your canvas
 At the bottom of the page
 1) Click Source
 2) Choose DelimitedText2 (the Virtual Machine Dataset)
+
+
+1) Click Sink
+2) Choose DelimitedText1 (the Storage Account Dataset)
+
+![image](https://user-images.githubusercontent.com/32169182/113287979-3983bb80-92e6-11eb-9736-3f9c781db0db.png)
