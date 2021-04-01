@@ -29,6 +29,11 @@ If you navigate to your newly created resource group or if you click *Go To Depl
 
 ![All the resources deployed](https://user-images.githubusercontent.com/32169182/110212984-f163ab80-7e95-11eb-89c1-0c1f12b2bbca.png)
 
+The final step looks like this:
+
+![image](https://user-images.githubusercontent.com/32169182/113283657-7947a480-92e0-11eb-9c55-6a903a0e4700.png)
+
+
 
 ## Step 2: Configure the Azure Data Factory to use a Private Endpoint
 - Navigate to your Azure Data Factory that has been created in your resourece group
