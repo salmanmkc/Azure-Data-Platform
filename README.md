@@ -159,5 +159,10 @@ Now you can see that the status of the integration run time on my self-hosted VM
 ![image](https://user-images.githubusercontent.com/32169182/113283944-d5122d80-92e0-11eb-9393-7cedd929c3cb.png)
 
 
+Add a new linked service again by going to linked services, new
+
+![image](https://user-images.githubusercontent.com/32169182/113284197-30dcb680-92e1-11eb-8d32-7bc0d079b1ec.png)
+
+
 
 
