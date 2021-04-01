@@ -144,3 +144,9 @@ In this case I've named it self-hosted-vm
 ![image](https://user-images.githubusercontent.com/32169182/113283289-050d0100-92e0-11eb-869f-3b22637a1093.png)
 
 
+Follow either option 1 or 2, I did option 1 where I logged onto the VM and installed the appliation and used one of the keys
+
+![image](https://user-images.githubusercontent.com/32169182/113283583-5d440300-92e0-11eb-8a63-4349805abb55.png)
+
+
+
