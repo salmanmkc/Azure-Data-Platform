@@ -178,7 +178,10 @@ On your VM, create a new folder on one of your drives
 1) Create a new file in that folder
 2) Copy the path of the folder
 
-![image](https://user-images.githubusercontent.com/32169182/113284679-e14aba80-92e1-11eb-975b-ccbfa8af7234.png)
+![image](https://user-images.githubusercontent.com/32169182/113284857-2b33a080-92e2-11eb-981c-c794f52aba11.png)
+
+
+
 
 
 
