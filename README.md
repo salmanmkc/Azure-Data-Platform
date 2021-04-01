@@ -244,4 +244,8 @@ Next you can browse to the path of your container that you previously created
 
 ![image](https://user-images.githubusercontent.com/32169182/113286657-68992d80-92e4-11eb-97e8-c3a6600af996.png)
 
+For the import schema, click on None
+
+![image](https://user-images.githubusercontent.com/32169182/113286729-7f3f8480-92e4-11eb-80c2-0d99f82694ea.png)
+
 
