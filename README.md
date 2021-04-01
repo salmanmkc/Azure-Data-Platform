@@ -197,4 +197,9 @@ As best practice you can create a linked service to an Azure Key Vault
 ![image](https://user-images.githubusercontent.com/32169182/113285306-b876f500-92e2-11eb-87c8-a17fc40c7038.png)
 
 
+Select Key Vault
+
+![image](https://user-images.githubusercontent.com/32169182/113285358-c9c00180-92e2-11eb-90b1-2b843d5dcadc.png)
+
+
 
