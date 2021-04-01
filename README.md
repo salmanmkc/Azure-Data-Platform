@@ -130,5 +130,9 @@ Now this approach is by using a key, if you have owner access to your subscripti
 ![image](https://user-images.githubusercontent.com/32169182/113283049-a778b480-92df-11eb-85e6-a229e9fa58cc.png)
 
 
+Choose Azure, Self-Hosted
+
+![image](https://user-images.githubusercontent.com/32169182/113283159-cb3bfa80-92df-11eb-8b58-9dd909e897d0.png)
+
 
 
