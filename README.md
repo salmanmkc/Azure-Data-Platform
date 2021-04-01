@@ -288,4 +288,6 @@ Drag Copy Data onto your canvas
 ![image](https://user-images.githubusercontent.com/32169182/113287624-bb271980-92e5-11eb-9bf4-92ff2e4cf7b4.png)
 
 
-
+At the bottom of the page
+1) Click Source
+2) Choose DelimitedText2 (the Virtual Machine Dataset)
