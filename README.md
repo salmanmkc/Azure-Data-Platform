@@ -146,6 +146,7 @@ Under Network Environment select Self-Hosted and then click continue
 
 
 In this case I've named it self-hosted-vm
+
 ![image](https://user-images.githubusercontent.com/32169182/113283289-050d0100-92e0-11eb-869f-3b22637a1093.png)
 
 
