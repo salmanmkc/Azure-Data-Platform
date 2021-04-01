@@ -266,3 +266,12 @@ You can then choose your linked service for your file server
 
 ![image](https://user-images.githubusercontent.com/32169182/113287171-199fc800-92e5-11eb-887c-4b66f8c97685.png)
 
+Browse for the file path
+
+![image](https://user-images.githubusercontent.com/32169182/113287247-3b00b400-92e5-11eb-8811-5156a5c1f733.png)
+
+Select the file you created
+
+![image](https://user-images.githubusercontent.com/32169182/113287296-4ce25700-92e5-11eb-9a07-10d95109afea.png)
+
+
