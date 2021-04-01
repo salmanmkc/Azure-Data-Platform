@@ -283,5 +283,9 @@ Create a new pipeline
 
 ![image](https://user-images.githubusercontent.com/32169182/113287497-93d04c80-92e5-11eb-9213-5024976102b7.png)
 
+Drag Copy Data onto your canvas
+
+![image](https://user-images.githubusercontent.com/32169182/113287624-bb271980-92e5-11eb-9bf4-92ff2e4cf7b4.png)
+
 
 
