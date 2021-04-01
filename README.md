@@ -154,5 +154,10 @@ Follow either option 1 or 2, I did option 1 where I logged onto the VM and insta
 
 ![image](https://user-images.githubusercontent.com/32169182/113283775-a09e7180-92e0-11eb-8378-a0394c8f9e43.png)
 
+Now you can see that the status of the integration run time on my self-hosted VM is now running
+
+![image](https://user-images.githubusercontent.com/32169182/113283944-d5122d80-92e0-11eb-9393-7cedd929c3cb.png)
+
+
 
 
