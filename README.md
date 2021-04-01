@@ -303,3 +303,6 @@ Click Debug
 
 ![image](https://user-images.githubusercontent.com/32169182/113288128-6fc13b00-92e6-11eb-926a-9edba0624346.png)
 
+It should then show the status as Succeeded
+
+![image](https://user-images.githubusercontent.com/32169182/113288214-8f586380-92e6-11eb-8b70-b910b0e9b176.png)
