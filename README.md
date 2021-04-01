@@ -180,6 +180,9 @@ On your VM, create a new folder on one of your drives
 
 ![image](https://user-images.githubusercontent.com/32169182/113284857-2b33a080-92e2-11eb-981c-c794f52aba11.png)
 
+Under host, paste the file path
+
+![image](https://user-images.githubusercontent.com/32169182/113284941-430b2480-92e2-11eb-918a-30ea261e7279.png)
 
 
 
