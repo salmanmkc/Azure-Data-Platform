@@ -254,5 +254,7 @@ Next do the same for your file server on the VM
 
 ![image](https://user-images.githubusercontent.com/32169182/113286947-c9c10100-92e4-11eb-8b1c-b83d3119019c.png)
 
+Search for file and choose File System
 
+![image](https://user-images.githubusercontent.com/32169182/113287019-e2c9b200-92e4-11eb-90c1-6ce878c27010.png)
 
