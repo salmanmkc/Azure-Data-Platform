@@ -297,4 +297,5 @@ At the bottom of the page
 1) Click Sink
 2) Choose DelimitedText1 (the Storage Account Dataset)
 
-![image](https://user-images.githubusercontent.com/32169182/113287979-3983bb80-92e6-11eb-9736-3f9c781db0db.png)
+![image](https://user-images.githubusercontent.com/32169182/113288066-5cae6b00-92e6-11eb-8521-441b84b1fe9e.png)
+
