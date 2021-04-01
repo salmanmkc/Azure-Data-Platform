@@ -202,4 +202,10 @@ Select Key Vault
 ![image](https://user-images.githubusercontent.com/32169182/113285358-c9c00180-92e2-11eb-90b1-2b843d5dcadc.png)
 
 
+You would choose your Key Vault that you created during the deployment stage here
+This can then be used for secrets instead of inputting your password for the self-hosted VM in the previous stage
+
+![image](https://user-images.githubusercontent.com/32169182/113285620-19063200-92e3-11eb-8e0a-bfd321d31aaf.png)
+
+
 
