@@ -185,6 +185,9 @@ Under host, paste the file path
 ![image](https://user-images.githubusercontent.com/32169182/113284941-430b2480-92e2-11eb-918a-30ea261e7279.png)
 
 
+Enter your username and password that you set in the initial ARM resource template deployment stage
+
+![image](https://user-images.githubusercontent.com/32169182/113285086-7057d280-92e2-11eb-8566-095d5fb47121.png)
 
 
 
