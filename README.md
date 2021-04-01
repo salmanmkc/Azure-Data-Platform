@@ -176,7 +176,7 @@ Under Connect via integration runtime, choose your self-hosted-vm
 
 On your VM, create a new file and copy the path
 
-![image](https://user-images.githubusercontent.com/32169182/113284550-b496a300-92e1-11eb-8a2e-ce97fa06d671.png)
+![image](https://user-images.githubusercontent.com/32169182/113284679-e14aba80-92e1-11eb-975b-ccbfa8af7234.png)
 
 
 
