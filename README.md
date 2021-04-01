@@ -242,5 +242,6 @@ Next you can browse to the path of your container that you previously created
 
 ![image](https://user-images.githubusercontent.com/32169182/113286621-5f0fc580-92e4-11eb-8a6e-6cd173792086.png)
 
+![image](https://user-images.githubusercontent.com/32169182/113286657-68992d80-92e4-11eb-97e8-c3a6600af996.png)
 
 
