@@ -121,3 +121,14 @@ Test the connection
 
 
 Now this approach is by using a key, if you have owner access to your subscription then you will be able to grant access via managed identity by configuring Access Control (IAM) and you can select Managed Identity in the steps above.
+
+
+1) Go to integration runtimes
+2) Click new
+
+
+![image](https://user-images.githubusercontent.com/32169182/113283049-a778b480-92df-11eb-85e6-a229e9fa58cc.png)
+
+
+
+
