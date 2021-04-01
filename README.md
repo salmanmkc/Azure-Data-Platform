@@ -232,3 +232,10 @@ For format choose DelimitedText/CSV
 
 ![image](https://user-images.githubusercontent.com/32169182/113286258-db55d900-92e3-11eb-8171-16ecf9e84b4d.png)
 
+
+Choose your linked service for your Azure Storage Account
+
+![image](https://user-images.githubusercontent.com/32169182/113286553-456e7e00-92e4-11eb-96bd-3dfe1f9b7652.png)
+
+
+
