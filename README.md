@@ -207,6 +207,11 @@ This can then be used for secrets instead of inputting your password for the sel
 
 ![image](https://user-images.githubusercontent.com/32169182/113285620-19063200-92e3-11eb-8e0a-bfd321d31aaf.png)
 
+Go to your storage account and create a new container
+
+![image](https://user-images.githubusercontent.com/32169182/113286441-1eb04780-92e4-11eb-9989-05e41837c959.png)
+
+
 
 ## Creating a Pipeline
 
@@ -226,5 +231,4 @@ Choose Azure Data Lake Gen 2
 For format choose DelimitedText/CSV
 
 ![image](https://user-images.githubusercontent.com/32169182/113286258-db55d900-92e3-11eb-8171-16ecf9e84b4d.png)
-
 
