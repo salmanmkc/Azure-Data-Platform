@@ -216,3 +216,9 @@ This can then be used for secrets instead of inputting your password for the sel
 
 
 ![image](https://user-images.githubusercontent.com/32169182/113286005-85813100-92e3-11eb-89b3-c202dddf7718.png)
+
+
+Choose Azure Data Lake Gen 2
+
+![image](https://user-images.githubusercontent.com/32169182/113286143-b6616600-92e3-11eb-84b0-20f6e94471f3.png)
+
