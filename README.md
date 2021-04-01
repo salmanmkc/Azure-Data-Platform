@@ -164,5 +164,10 @@ Add a new linked service again by going to linked services, new
 ![image](https://user-images.githubusercontent.com/32169182/113284197-30dcb680-92e1-11eb-8d32-7bc0d079b1ec.png)
 
 
+Search for file and choose File System
+
+![image](https://user-images.githubusercontent.com/32169182/113284316-5d90ce00-92e1-11eb-9635-26b6eed613fa.png)
+
+
 
 
