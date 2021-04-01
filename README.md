@@ -274,4 +274,7 @@ Select the file you created
 
 ![image](https://user-images.githubusercontent.com/32169182/113287296-4ce25700-92e5-11eb-9a07-10d95109afea.png)
 
+Change the import schema to none
+
+![image](https://user-images.githubusercontent.com/32169182/113287344-5e2b6380-92e5-11eb-9e8a-fa1ba98fd519.png)
 
