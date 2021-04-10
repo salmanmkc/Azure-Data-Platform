@@ -1,8 +1,9 @@
+
 # Azure Data Platform/Analytics Platform
 This project is here to... {to do}
 
 ## Pre-requisites:
-- An Azure Resource Group with Contributor Access
+- An Azure Resource Group with Contributor Access (remember Azure inherits), Owner access is required for managed instance which is optional but discussed in this guide
 
 # How to set up the project
 
@@ -23,7 +24,7 @@ Click deploy and you should have this showing:
 
 This should take approximately 5 minutes, however that's solely due to there being a whole Virtual Machine deployment (IaaS), and you can continue to do the next steps as the Virtual Machine continues to deploy.
 
-If you navigate to your newly created resource group or if you click *Go To Deployment* you should have all of these resources (the names may differ based on your input parameters unpon deploying the template:
+If you navigate to your newly created resource group or if you click *Go To Deployment* you should have all of these resources (the names may differ based on your input parameters upon deploying the template:
 
 
 
@@ -36,7 +37,7 @@ The final step looks like this:
 
 
 ## Step 2: Configure the Azure Data Factory to use a Private Endpoint
-- Navigate to your Azure Data Factory that has been created in your resourece group
+- Navigate to your Azure Data Factory that has been created in your resource group
 - Go to the networking tab on the left
 - Change the Networking Access from Public Endpoint to Private Endpoint
 
@@ -55,11 +56,12 @@ Tab 1:
 Target your own resource in tab 2
 ![image](https://user-images.githubusercontent.com/32169182/110741578-d47bff00-822c-11eb-9e98-c71b5d6ce10e.png)
 
-Naviate to your Azure Data Factory and lunch it
+Navigate to your Azure Data Factory and lunch it
 ![image](https://user-images.githubusercontent.com/32169182/110761884-241bf400-8248-11eb-97fa-7d50dbc29956.png)
 
+Note that you also want to make sure that this private endpoint is configured with the correct VNET, else Azure Data Factory will resolve your public endpoint.
 
-# Managed VNET
+## Step 3: Managed VNET
 By creating a managed VNET it allows us to access our PaaS resources on a private endpoint.
 
 1. Click the Manage option on the left menu
@@ -76,7 +78,7 @@ Then click Azure and continue again
 ![image](https://user-images.githubusercontent.com/32169182/112648937-e6bb8700-8e41-11eb-9901-14cd99603603.png)
 
 1. Give it a good name, in this case I've named it managed-vnet
-2. Enable Vritual network configuration
+2. Enable Virtual network configuration
 Then click create
 
 ![image](https://user-images.githubusercontent.com/32169182/112649193-1c607000-8e42-11eb-95ea-50202c2f9daf.png)
@@ -125,7 +127,7 @@ Test the connection
 ![image](https://user-images.githubusercontent.com/32169182/112961913-ba538380-913d-11eb-93e0-c82429e53dd2.png)
 
 
-Now this approach is by using a key, if you have owner access to your subscription then you will be able to grant access via managed identity by configuring Access Control (IAM) and you can select Managed Identity in the steps above.
+Now this approach is by using a key, **if** you have owner access to your subscription then you will be able to grant access via managed identity by configuring Access Control (IAM) and you can select Managed Identity in the steps above.
 
 
 1) Go to integration runtimes
@@ -150,7 +152,7 @@ In this case I've named it self-hosted-vm
 ![image](https://user-images.githubusercontent.com/32169182/113283289-050d0100-92e0-11eb-869f-3b22637a1093.png)
 
 
-Follow either option 1 or 2, I did option 1 where I logged onto the VM and installed the appliation and used one of the keys
+Follow either option 1 or 2, I did option 1 where I logged onto the VM and installed the application and used one of the keys
 
 ![image](https://user-images.githubusercontent.com/32169182/113283775-a09e7180-92e0-11eb-8378-a0394c8f9e43.png)
 
@@ -213,7 +215,7 @@ Go to your storage account and create a new container
 
 
 
-## Creating connections for the pipeline
+## Step 4: Creating connections for the pipeline
 
 1) Click on Pipelines in the side menu on the left
 2) Click the plus button
@@ -279,11 +281,11 @@ Change the import schema to none
 ![image](https://user-images.githubusercontent.com/32169182/113287344-5e2b6380-92e5-11eb-9e8a-fa1ba98fd519.png)
 
 
-Create a new pipeline
+## Step 5: Create a new pipeline
 
-![image](https://user-images.githubusercontent.com/32169182/113287497-93d04c80-92e5-11eb-9213-5024976102b7.png)
+So all the stages before this are primarily just for set up. This is the most customisable step of the process, this will simply copy a file from your virtual machine to your container on Azure Blob Storage.
 
-Drag Copy Data onto your canvas
+Firstly Drag Copy Data onto your canvas
 
 ![image](https://user-images.githubusercontent.com/32169182/113287624-bb271980-92e5-11eb-9bf4-92ff2e4cf7b4.png)
 
@@ -307,3 +309,6 @@ Click Debug
 It should then show the status as Succeeded
 
 ![image](https://user-images.githubusercontent.com/32169182/113288214-8f586380-92e6-11eb-8b70-b910b0e9b176.png)
+
+## Complete! I hope you all enjoyed. 
+Feel free to create an issue on this GitHub page if you have found any problems setting it up or message me directly on [LinkedIn](https://www.linkedin.com/in/salmanmkc/) or by emailing t-schish@microsoft.com
