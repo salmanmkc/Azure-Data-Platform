@@ -1,6 +1,6 @@
 
 # Azure Data Platform/Analytics Platform
-This project is here to... {to do}
+This project is here to provide an end-to-end data platform on Azure, with all of the required services in place and fully connected.  This provides the empty shell of the solution, ready to "bring-your-own-data".
 
 ## Pre-requisites:
 - An Azure Resource Group with Contributor Access (remember Azure inherits), Owner access is required for managed instance which is optional but discussed in this guide
