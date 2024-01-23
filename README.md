@@ -5,6 +5,8 @@ This project is here to provide an end-to-end data platform on Azure, with all o
 ## Pre-requisites:
 - An Azure Resource Group with Contributor Access (remember Azure inherits), Owner access is required for managed instance which is optional but discussed in this guide
 
+123
+
 # How to set up the project
 
 ## Step 1: Click Deploy To Azure below to get started
